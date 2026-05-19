@@ -101,6 +101,9 @@ class App(ctk.CTk):
 
         # Update QR on port change
         self.port_entry.bind("<KeyRelease>", lambda event: self.update_qr())
+        
+        # Auto start server on launch
+        self.after(100, self.toggle_server)
 
     def toggle_logs(self):
         self.logs_visible = not self.logs_visible
