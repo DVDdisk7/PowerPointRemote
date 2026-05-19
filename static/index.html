@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PowerPoint Remote</title>
+    <link rel="stylesheet" href="/static/style.css?v=5">
+</head>
+<body>
+    
+    <div class="top-bar">
+        <div id="slide-indicator" onclick="openSlidesModal()">Slide: - / -</div>
+    </div>
+
+    <div class="main-content">
+        <div class="slide-container" id="current-slide-container">
+            <img id="current-slide-img" src="" alt="Current Slide" style="display:none;">
+            <div id="not-running-msg">Presentation not running</div>
+        </div>
+        
+        <div class="preview-container">
+            <div class="preview-box">
+                <h3>Next</h3>
+                <img id="next-slide-img" src="" alt="Next Slide" style="display:none;">
+            </div>
+            <div class="notes-box" id="notes-content">
+                Start the presentation to see notes.
+            </div>
+        </div>
+    </div>
+
+    <div class="secondary-controls">
+        <button onclick="openSlidesModal()">All Slides</button>
+        <button id="blank-btn" onclick="sendCommand('blank')">Blank</button>
+        <button onclick="sendCommand('start')">Start</button>
+        <button onclick="sendCommand('stop')">Stop</button>
+    </div>
+
+    <div class="controls">
+        <button class="control-btn" onclick="sendCommand('prev')">PREVIOUS</button>
+        <button class="control-btn primary" onclick="sendCommand('next')">NEXT</button>
+    </div>
+    
+    <div class="status-bar" id="connection-status">Connecting...</div>
+
+    <div id="slides-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>All Slides</h2>
+                <button onclick="closeSlidesModal()">Close</button>
+            </div>
+            <div class="modal-body" id="slides-list">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js?v=5"></script>
+</body>
+</html>

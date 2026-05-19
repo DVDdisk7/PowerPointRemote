@@ -1,0 +1,238 @@
+:root {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --border-color: #333333;
+    --primary-color: #bb86fc;
+    --primary-hover: #9965f4;
+    --text-color: #e0e0e0;
+    --btn-bg: #2c2c2c;
+    --btn-hover: #3d3d3d;
+    --danger-color: #cf6679;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.top-bar {
+    padding: 15px;
+    background-color: var(--surface-color);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#slide-indicator {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    gap: 10px;
+}
+
+.slide-container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-height: 150px;
+    padding: 5px;
+}
+
+.slide-container img {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    object-fit: contain;
+    display: block;
+}
+
+#not-running-msg {
+    color: #888;
+    padding: 20px;
+}
+
+.preview-container {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    min-height: 120px;
+}
+
+.preview-box {
+    flex: 0.8;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-box h3 {
+    margin: 0 0 5px 0;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.preview-box img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.notes-box {
+    flex: 1.2;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    color: #ccc;
+}
+
+.secondary-controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.secondary-controls button {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.secondary-controls button:active {
+    background-color: var(--btn-hover);
+}
+
+.secondary-controls button.active-blank {
+    background-color: var(--danger-color) !important;
+    color: #fff !important;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    padding-bottom: 40px; /* Extra padding for mobile navigation bar */
+    background-color: var(--surface-color);
+}
+
+button.control-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+button.control-btn:active {
+    background-color: var(--btn-hover);
+}
+
+button.control-btn.primary {
+    background-color: var(--primary-color);
+    color: #000;
+    border: none;
+}
+
+button.control-btn.primary:active {
+    background-color: var(--primary-hover);
+}
+
+.status-bar {
+    text-align: center;
+    padding: 5px;
+    font-size: 0.75rem;
+    color: #666;
+    background-color: var(--bg-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Modal styling */
+.modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    width: 90%; height: 80%;
+    border-radius: 8px; display: flex; flex-direction: column; overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.modal-header {
+    padding: 15px; background-color: var(--bg-color);
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 { margin: 0; font-size: 1.1rem; }
+.modal-header button {
+    background-color: var(--danger-color); color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;
+}
+
+.modal-body {
+    flex: 1; overflow-y: auto; padding: 10px;
+}
+
+.slide-item {
+    display: flex; align-items: center; padding: 10px; border-bottom: 1px solid var(--border-color); cursor: pointer;
+}
+
+.slide-item:active {
+    background-color: var(--btn-hover);
+}
+
+.slide-item img {
+    width: 80px; height: auto; background-color: #000; margin-right: 15px; border-radius: 4px;
+}
+
+.slide-item span { flex: 1; font-weight: bold; font-size: 0.9rem; }
