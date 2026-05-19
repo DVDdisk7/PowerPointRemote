@@ -242,3 +242,43 @@ button.control-btn.primary:active {
 }
 
 .slide-item span { flex: 1; font-weight: bold; font-size: 0.9rem; }
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) {
+    .main-content {
+        flex-direction: row;
+    }
+
+    .slide-container {
+        flex: 1.2;
+        min-height: 0;
+        height: auto;
+    }
+
+    .slide-container img {
+        max-height: 100%;
+    }
+
+    .preview-container {
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .preview-box {
+        flex: 1;
+        min-height: 0;
+    }
+
+    .preview-box img {
+        max-height: 100%;
+    }
+
+    .notes-box {
+        flex: 1.5;
+        min-height: 0;
+    }
+
+    .controls {
+        padding-bottom: 10px; /* Less bottom padding needed on landscape */
+    }
+}
