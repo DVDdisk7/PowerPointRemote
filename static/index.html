@@ -20,8 +20,11 @@
         </div>
         
         <div class="preview-container">
-            <div class="preview-box">
-                <h3>Next</h3>
+            <div class="preview-box" id="preview-box">
+                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; margin-bottom: 5px;">
+                    <h3>Next</h3>
+                    <button id="toggle-notes-btn" onclick="toggleNotes()" style="background: none; border: 1px solid var(--border-color); color: var(--text-color); cursor: pointer; font-size: 0.7rem; padding: 3px 6px; border-radius: 4px;">Hide Notes</button>
+                </div>
                 <img id="next-slide-img" src="" alt="Next Slide" style="display:none;">
             </div>
             <div class="notes-box" id="notes-content">

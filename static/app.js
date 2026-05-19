@@ -1,5 +1,25 @@
 let currentSlideIndex = 1;
 let currentPresName = "";
+let notesVisible = true;
+
+function toggleNotes() {
+    notesVisible = !notesVisible;
+    const notesEl = document.getElementById('notes-content');
+    const previewBox = document.getElementById('preview-box');
+    const btn = document.getElementById('toggle-notes-btn');
+    
+    if (notesVisible) {
+        notesEl.style.display = 'block';
+        previewBox.style.flex = '0.8';
+        previewBox.classList.remove('expanded');
+        btn.textContent = 'Hide Notes';
+    } else {
+        notesEl.style.display = 'none';
+        previewBox.style.flex = '1';
+        previewBox.classList.add('expanded');
+        btn.textContent = 'Show Notes';
+    }
+}
 
 function sendCommand(action, index = null) {
     fetch('/static/../command', {

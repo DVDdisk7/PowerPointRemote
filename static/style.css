@@ -91,7 +91,7 @@ body {
 }
 
 .preview-box h3 {
-    margin: 0 0 5px 0;
+    margin: 0;
     font-size: 0.8rem;
     color: #888;
 }
@@ -102,6 +102,12 @@ body {
     max-height: 150px;
     object-fit: contain;
     border-radius: 4px;
+    flex: 1;
+    min-height: 0;
+}
+
+.preview-box.expanded img {
+    max-height: none;
 }
 
 .notes-box {
